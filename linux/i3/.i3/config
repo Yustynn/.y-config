@@ -42,9 +42,9 @@ bindsym $mod+e exec rofi -show run -lines 3 -eh 2 -width 100 -padding 420 -opaci
 
 # change focus
 bindsym $mod+h focus left
-bindsym $mod+t focus down
-bindsym $mod+n focus up
-bindsym $mod+s focus right
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -54,9 +54,9 @@ bindsym $mod+Right focus right
 
 # move focused window
 bindsym $mod+Shift+h move left
-bindsym $mod+Shift+t move down
-bindsym $mod+Shift+n move up
-bindsym $mod+Shift+s move right
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -68,7 +68,7 @@ bindsym $mod+Shift+Right move right
 bindsym $mod+d split h
 
 # split in vertical orientation
-bindsym $mod+k split v
+bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+u fullscreen
@@ -98,7 +98,7 @@ set $workspace5 "5"
 set $workspace6 "6"
 set $workspace7 "7"
 set $workspace8 "8"
-set $workspace9 "9"
+set $workspace9 "9: "
 set $workspace10 "10: "
 
 # switch to workspace
@@ -129,6 +129,7 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 # check using `xprop`
 for_window [class="Spotify"] move to workspace $workspace10 
 assign [class="Google-chrome"] $workspace2
+assign [class="Slack"] $workspace9
 
 # colors copied from alex booker
 set $bg-color 	         #2f343f
@@ -147,7 +148,7 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 hide_edge_borders both # I'm pretty torn on this one
 
 # reload the configuration file
-bindsym $mod+Shift+j reload
+bindsym $mod+Shift+y reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+p restart
 # exit i3 (logs you out of your X session)
@@ -200,9 +201,10 @@ bar {
 
 ### y-config ###
 
-bindsym $mod+shift+x 	exec i3lock
-bindsym $mod+j 				exec google-chrome
-bindsym $mod+b 				exec	nautilus
+bindsym $mod+shift+x 	    exec i3lock
+bindsym $mod+c 				    exec google-chrome
+bindsym $mod+b 				    exec nautilus
+bindsym ctrl+$mod+o       exec shutter -s
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume @DEFAULT_SINK@ +5%
@@ -221,6 +223,10 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 exec xrandr --output eDP1 --mode 1680x1050
-exec compton -f -O 0.12 -I 0.13
+# exec compton --config ~/.compton -f -O 0.12 -I 0.13
+exec --no-startup-id compton --config ~/.y-config/linux/compton.conf -b
 exec --no-startup-id feh --bg-scale ~/.y-config/shared/wallpapers/sea.jpg
 exec ~/pia.sh
+exec ssh-add ~/.ssh/git
+exec dropbox start 
+exec --no-startup-id nm-applet

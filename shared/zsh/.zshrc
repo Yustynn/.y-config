@@ -87,3 +87,43 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source /opt/ros/indigo/setup.zsh
+# export PATH="/home/starcaptain/anaconda2/bin:$PATH"
+
+export TUTOR_USERNAME="1002011"
+export TUTOR_PASSWORD="Sutd1234"
+
+export LIBFREENECT2_INSTALL_PREFIX='~/freenect2'
+export LIBFREENECT2_INSTALL_PREFIX='/usr/local/'
+export LD_LIBRARY_PATH=$HOME/freenect2/lib:/usr/local:$LD_LIBRARY_PATH
+
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+## rvm
+PATH="$GEM_HOME/bin:$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
+[ -s ${HOME}/.rvm/scripts/rvm ] && source ${HOME}/.rvm/scripts/rvm
+
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
+
+alias rsrc='source ~/.zshrc'
+alias rs='rails s'
+alias ns='npm start'
+alias xs='foreman start -f Procfile.hot'
+
+export ANDROID_HOME=/media/starcaptain/72be0248-074d-4478-b9f7-f22f09bd444e/Android/Sdk
+export PATH=${PATH}:${ANDROID_HOME}/tools
+export PATH=${PATH}:${ANDROID_HOME}/platform-tools
+
+LD_LIBRARY_PATH=/usr/local/lib64/:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH
+
+export JAVA_HOME="/usr/lib/jvm/java-8-oracle"
+
+export TERM=xterm-256color
+
+source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh  
